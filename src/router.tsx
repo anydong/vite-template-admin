@@ -7,7 +7,7 @@ const routes: RouteObject[] = [
     children: [
       {
         index: true,
-        lazy: () => import("@/pages/index"),
+        lazy: () => import("@/routes/index.lazy.tsx"),
       },
     ],
   },
@@ -22,7 +22,7 @@ const routes: RouteObject[] = [
     children: [
       {
         path: "login",
-        lazy: () => import("@/pages/login"),
+        lazy: () => import("@/routes/login/index.lazy.tsx"),
       },
     ],
   },

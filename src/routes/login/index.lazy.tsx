@@ -1,11 +1,12 @@
 import { LoginFormPage, ProFormText } from "@ant-design/pro-components";
+import { createLazyFileRoute } from "@tanstack/react-router";
 import { Form } from "antd";
 import type { FC } from "react";
 
-import type { LoginRequest } from "@/api/LoginApi";
-import { LoginRequestFormRule, login } from "@/api/LoginApi";
+import type { LoginRequest } from "@/api/LoginApi.ts";
+import { LoginRequestFormRule, login } from "@/api/LoginApi.ts";
 
-export const Component: FC = () => {
+const Component: FC = () => {
   const [loginForm] = Form.useForm();
   const submitLoginRequest = async (formData: any) => {
     const request: LoginRequest = {
@@ -43,3 +44,7 @@ export const Component: FC = () => {
     </LoginFormPage>
   );
 };
+
+export const Route = createLazyFileRoute("/login/")({
+  component: Component,
+});

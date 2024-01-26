@@ -1,10 +1,19 @@
+import { RouterProvider, createRouter } from "@tanstack/react-router";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
 
-import Loading from "@/components/Loading";
+// Import the generated route tree
+import { routeTree } from "./routeTree.gen";
 
-import router from "@/router.tsx";
+// Create a new router instance
+const router = createRouter({ routeTree });
+
+// Register the router instance for type safety
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: typeof router;
+  }
+}
 
 import "@/config/dayjs.ts";
 import "@/locale";
@@ -14,6 +23,6 @@ import "./global.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} fallbackElement={<Loading />} />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 );
