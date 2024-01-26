@@ -1,11 +1,11 @@
 import type { ProLayoutProps, ProSettings } from "@ant-design/pro-components";
 import { ProConfigProvider, ProLayout } from "@ant-design/pro-components";
+import { Outlet, createFileRoute } from "@tanstack/react-router";
 import { ConfigProvider } from "antd";
 import zhCn from "antd/locale/zh_CN";
 import type { FC } from "react";
-import { Outlet } from "react-router-dom";
 
-export const Component: FC = () => {
+const Component: FC = () => {
   const proSettings: ProSettings = {
     layout: "top",
     fixedHeader: true,
@@ -28,3 +28,7 @@ export const Component: FC = () => {
     </ProConfigProvider>
   );
 };
+
+export const Route = createFileRoute("/_authLayout")({
+  component: Component,
+});

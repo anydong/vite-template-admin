@@ -1,9 +1,9 @@
 import type { ProLayoutProps, ProSettings } from "@ant-design/pro-components";
 import { ProConfigProvider, ProLayout } from "@ant-design/pro-components";
+import { Outlet, createLazyFileRoute } from "@tanstack/react-router";
 import { ConfigProvider } from "antd";
 import zhCn from "antd/locale/zh_CN";
 import type { FC } from "react";
-import { Outlet } from "react-router-dom";
 
 export const Component: FC = () => {
   const proSettings: ProSettings = {
@@ -24,3 +24,7 @@ export const Component: FC = () => {
     </ProConfigProvider>
   );
 };
+
+export const Route = createLazyFileRoute("/_basicLayout")({
+  component: Component,
+});

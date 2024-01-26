@@ -45,6 +45,6 @@ const Component: FC = () => {
   );
 };
 
-export const Route = createLazyFileRoute("/login/")({
+export const Route = createLazyFileRoute("/_authLayout/login")({
   component: Component,
 });
