@@ -1,9 +1,11 @@
-import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
+import type { FC } from "react";
+import { useTranslation } from "react-i18next";
 
-const Loading: FC = () => {
+export const Component: FC = () => {
   const { t } = useTranslation();
-  return <div>{t('common:Loading')}</div>;
+  return (
+    <div className="flex h-full items-center justify-center">
+      <div>{t("common:Loading")}</div>
+    </div>
+  );
 };
-
-export default Loading;

@@ -2,6 +2,7 @@ import { RouterProvider, createRouter } from "@tanstack/react-router";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import { Component as Loading } from "@/components/Loading";
 import { notFoundRoute } from "@/components/NotFoundRoute";
 
 // Import the generated route tree
@@ -12,7 +13,7 @@ const router = createRouter({
   routeTree,
   notFoundRoute,
   defaultPreload: "intent",
-  defaultComponent: () => import("@/components/Loading"),
+  defaultPendingComponent: Loading,
 });
 
 // Register the router instance for type safety
